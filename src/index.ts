@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import productRouter from "./routes/products"
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import imageRouter from "./routes/images";
 
 dotenv.config();
 
@@ -24,7 +25,10 @@ try {
     console.log(e);
 }
 
-app.use("/product", productRouter)
+app.use(express.static('uploads'));
+
+app.use("/product", productRouter);
+app.use("/image", imageRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Express + TypeScript Server");
