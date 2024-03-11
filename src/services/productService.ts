@@ -5,17 +5,17 @@ class ProductService {
         try {
             const products = await ProductModel.find();
             return products;
-        } catch {
-            throw new Error("Error while getting products");
+        } catch (e) {
+            throw new Error("Error while getting products \n " + e);
         }
     }
 
-    public static async createProduct(Product: Product) {
+    public static async createProduct(product: Product) {
         try {
-            const newProduct = new ProductModel(Product);
+            const newProduct = new ProductModel(product);
             await newProduct.save();
-        } catch {
-            throw new Error("Error while creating product");
+        } catch (e) {
+            throw new Error("Error while creating product \n " + e);
         }
     }
 }
