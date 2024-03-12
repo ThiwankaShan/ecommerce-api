@@ -34,5 +34,5 @@ E Commerce Web App
 4. Start the server:
 
     ```bash
-    npm start
+    npm run dev
     ```
